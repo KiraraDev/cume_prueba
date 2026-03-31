@@ -300,10 +300,37 @@ function handleContactForm(e) {
   e.preventDefault();
   const form = e.target;
   const success = document.getElementById('form-success');
-  if (form && success) {
-    form.style.display = 'none';
-    success.classList.add('show');
-  }
+  const btn = form.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  fetch(form.action, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      name: form.querySelector('[name="name"]').value,
+      email: form.querySelector('[name="email"]').value,
+      message: form.querySelector('[name="message"]').value,
+      _subject: form.querySelector('[name="_subject"]').value
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      form.style.display = 'none';
+      success.classList.add('show');
+    } else {
+      btn.disabled = false;
+      btn.textContent = originalText;
+      alert('Error al enviar. Inténtalo de nuevo.');
+    }
+  })
+  .catch(() => {
+    btn.disabled = false;
+    btn.textContent = originalText;
+    alert('Error al enviar. Inténtalo de nuevo.');
+  });
 }
 
 // --- Close navbar on link click (mobile) ---

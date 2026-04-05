@@ -12,6 +12,7 @@ const translations = {
     'nav-espacio': 'Espacio',
     'nav-ribadavia': 'Ribadavia',
     'nav-galeria': 'Galería',
+    'nav-pdv': 'Puntos de venta',
     'nav-catas': 'Catas',
     'nav-contacto': 'Contacto',
 
@@ -95,6 +96,12 @@ const translations = {
     'contact-success-title': 'Mensaje enviado',
     'contact-success-text': 'Gracias por tu interés. Nos pondremos en contacto contigo pronto.',
 
+    // Puntos de venta
+    'pdv-title': 'Puntos de venta',
+    'pdv-subtitle': 'Dónde encontrar nuestros vinos',
+    'pdv-intro': 'Además de en la propia vinoteca, puedes encontrar los vinos de Cume do Avia en una selección de tiendas gourmet, vinotecas y espacios gastronómicos de Galicia comprometidos con el producto local.',
+    'pdv-note': '¿Tienes una tienda o restaurante y quieres ofrecer nuestros vinos? Escríbenos desde la sección de contacto.',
+
     // Catas
     'catas-title': 'Catas',
     'catas-subtitle': 'Apúntate a nuestras catas comentadas',
@@ -129,6 +136,7 @@ const translations = {
     'nav-espacio': 'Espazo',
     'nav-ribadavia': 'Ribadavia',
     'nav-galeria': 'Galería',
+    'nav-pdv': 'Puntos de venda',
     'nav-catas': 'Catas',
     'nav-contacto': 'Contacto',
 
@@ -211,6 +219,12 @@ const translations = {
     'contact-location': 'Ribadavia, Ourense, Galicia',
     'contact-success-title': 'Mensaxe enviada',
     'contact-success-text': 'Grazas polo teu interese. Poñerémonos en contacto contigo pronto.',
+
+    // Puntos de venta
+    'pdv-title': 'Puntos de venda',
+    'pdv-subtitle': 'Onde atopar os nosos viños',
+    'pdv-intro': 'Ademais da propia vinoteca, podes atopar os viños de Cume do Avia nunha selección de tendas gourmet, vinotecas e espazos gastronómicos de Galicia comprometidos co produto local.',
+    'pdv-note': 'Tes unha tenda ou restaurante e queres ofrecer os nosos viños? Escríbenos desde a sección de contacto.',
 
     // Catas
     'catas-title': 'Catas',

@@ -12,6 +12,7 @@ const translations = {
     'nav-espacio': 'Espacio',
     'nav-ribadavia': 'Ribadavia',
     'nav-galeria': 'Galería',
+    'nav-catas': 'Catas',
     'nav-contacto': 'Contacto',
 
     // Hero
@@ -94,6 +95,23 @@ const translations = {
     'contact-success-title': 'Mensaje enviado',
     'contact-success-text': 'Gracias por tu interés. Nos pondremos en contacto contigo pronto.',
 
+    // Catas
+    'catas-title': 'Catas',
+    'catas-subtitle': 'Apúntate a nuestras catas comentadas',
+    'catas-desc': 'Una vez al mes organizamos una cata guiada en la vinoteca, con una selección de vinos del Ribeiro acompañados de pequeños bocados de productos gallegos. Una sesión íntima para descubrir, conversar y disfrutar sin prisa. Plazas limitadas para mantener el carácter cercano del encuentro.',
+    'catas-name-label': 'Nombre',
+    'catas-name-ph': 'Tu nombre',
+    'catas-email-label': 'Email',
+    'catas-email-ph': 'Tu correo electrónico',
+    'catas-btn': 'Apuntarme',
+    'catas-waitlist-notice': 'Las plazas para la próxima cata están completas. Si te apuntas, pasarás a la lista de espera y te avisaremos en cuanto se libere un sitio.',
+    'catas-success-title': '¡Apuntado!',
+    'catas-success-text': 'Gracias por tu interés. Te confirmaremos los detalles por email.',
+    'catas-success-waitlist-title': 'En lista de espera',
+    'catas-success-waitlist-text': 'Las plazas estaban completas, así que te hemos añadido a la lista de espera. Te avisaremos por email si se libera un sitio.',
+    'catas-sending': 'Enviando...',
+    'catas-error': 'Error al enviar. Inténtalo de nuevo.',
+
     // Footer
     'footer-desc': 'Un espacio para descubrir y compartir el vino del Ribeiro en el corazón de Ribadavia.',
     'footer-nav-title': 'Navegación',
@@ -111,6 +129,7 @@ const translations = {
     'nav-espacio': 'Espazo',
     'nav-ribadavia': 'Ribadavia',
     'nav-galeria': 'Galería',
+    'nav-catas': 'Catas',
     'nav-contacto': 'Contacto',
 
     // Hero
@@ -192,6 +211,23 @@ const translations = {
     'contact-location': 'Ribadavia, Ourense, Galicia',
     'contact-success-title': 'Mensaxe enviada',
     'contact-success-text': 'Grazas polo teu interese. Poñerémonos en contacto contigo pronto.',
+
+    // Catas
+    'catas-title': 'Catas',
+    'catas-subtitle': 'Apúntate ás nosas catas comentadas',
+    'catas-desc': 'Unha vez ao mes organizamos unha cata guiada na vinoteca, cunha selección de viños do Ribeiro acompañados de pequenos bocados de produtos galegos. Unha sesión íntima para descubrir, conversar e gozar sen présa. Prazas limitadas para manter o carácter próximo do encontro.',
+    'catas-name-label': 'Nome',
+    'catas-name-ph': 'O teu nome',
+    'catas-email-label': 'Email',
+    'catas-email-ph': 'O teu correo electrónico',
+    'catas-btn': 'Apuntarme',
+    'catas-waitlist-notice': 'As prazas para a próxima cata están completas. Se te apuntas, pasarás á lista de espera e avisarémoste en canto se libere un sitio.',
+    'catas-success-title': 'Apuntado!',
+    'catas-success-text': 'Grazas polo teu interese. Confirmarémosche os detalles por email.',
+    'catas-success-waitlist-title': 'En lista de espera',
+    'catas-success-waitlist-text': 'As prazas estaban completas, así que te engadimos á lista de espera. Avisarémoste por email se se libera un sitio.',
+    'catas-sending': 'Enviando...',
+    'catas-error': 'Erro ao enviar. Téntao de novo.',
 
     // Footer
     'footer-desc': 'Un espazo para descubrir e compartir o viño do Ribeiro no corazón de Ribadavia.',
@@ -333,6 +369,85 @@ function handleContactForm(e) {
   });
 }
 
+// --- Catas Form (Google Sheets vía Apps Script) ---
+// Pega aquí la URL del Web App desplegado en Google Apps Script.
+const CATAS_ENDPOINT = 'https://script.google.com/macros/s/REEMPLAZAR_CON_TU_ID/exec';
+
+function catasEndpointReady() {
+  return CATAS_ENDPOINT && !CATAS_ENDPOINT.includes('REEMPLAZAR');
+}
+
+async function checkCatasStatus() {
+  if (!catasEndpointReady()) return;
+  try {
+    const res = await fetch(CATAS_ENDPOINT + '?action=status');
+    const data = await res.json();
+    if (data && data.isFull) {
+      const notice = document.getElementById('catas-waitlist-notice');
+      if (notice) notice.style.display = 'block';
+    }
+  } catch (err) {
+    console.warn('No se pudo comprobar el estado de catas', err);
+  }
+}
+
+function showCatasSuccess(status) {
+  const form = document.getElementById('catas-form');
+  const success = document.getElementById('catas-success');
+  const title = document.getElementById('catas-success-title');
+  const text = document.getElementById('catas-success-text');
+  const notice = document.getElementById('catas-waitlist-notice');
+  if (form) form.style.display = 'none';
+  if (notice) notice.style.display = 'none';
+  const t = translations[currentLang];
+  if (status === 'waitlist') {
+    if (title) title.textContent = t['catas-success-waitlist-title'];
+    if (text) text.textContent = t['catas-success-waitlist-text'];
+  } else {
+    if (title) title.textContent = t['catas-success-title'];
+    if (text) text.textContent = t['catas-success-text'];
+  }
+  if (success) success.classList.add('show');
+}
+
+function handleCatasForm(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+  const t = translations[currentLang];
+
+  if (!catasEndpointReady()) {
+    alert('Endpoint de Catas no configurado todavía.');
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = t['catas-sending'];
+
+  const body = new URLSearchParams({
+    name: form.querySelector('[name="name"]').value,
+    email: form.querySelector('[name="email"]').value
+  });
+
+  fetch(CATAS_ENDPOINT, { method: 'POST', body })
+    .then(res => res.json())
+    .then(data => {
+      if (data && (data.status === 'confirmed' || data.status === 'waitlist')) {
+        showCatasSuccess(data.status);
+      } else {
+        btn.disabled = false;
+        btn.textContent = originalText;
+        alert(t['catas-error']);
+      }
+    })
+    .catch(() => {
+      btn.disabled = false;
+      btn.textContent = originalText;
+      alert(t['catas-error']);
+    });
+}
+
 // --- Close navbar on link click (mobile) ---
 function closeNavbarOnClick() {
   const navbarCollapse = document.querySelector('.navbar-collapse');
@@ -395,6 +510,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', handleContactForm);
+  }
+
+  // Catas form
+  const catasForm = document.getElementById('catas-form');
+  if (catasForm) {
+    catasForm.addEventListener('submit', handleCatasForm);
+    checkCatasStatus();
   }
 
   // Close navbar on link click (mobile)

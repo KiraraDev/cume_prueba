@@ -13,6 +13,7 @@ const translations = {
     'nav-ribadavia': 'Ribadavia',
     'nav-galeria': 'Galería',
     'nav-pdv': 'Puntos de venta',
+    'nav-pdv-stack': 'Puntos\nde\nventa',
     'nav-catas': 'Catas',
     'nav-contacto': 'Contacto',
 
@@ -137,6 +138,7 @@ const translations = {
     'nav-ribadavia': 'Ribadavia',
     'nav-galeria': 'Galería',
     'nav-pdv': 'Puntos de venda',
+    'nav-pdv-stack': 'Puntos\nde\nvenda',
     'nav-catas': 'Catas',
     'nav-contacto': 'Contacto',
 

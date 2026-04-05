@@ -112,9 +112,23 @@ img {
 }
 
 .navbar-vinoteca .nav-link.nav-link-compact {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   letter-spacing: 1px;
-  padding: 0.5rem 0.7rem !important;
+  padding: 0.25rem 0.75rem !important;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 1.15;
+}
+
+/* En mobile (menú desplegable) volvemos a una sola línea */
+@media (max-width: 991.98px) {
+  .navbar-vinoteca .nav-link.nav-link-compact {
+    white-space: normal;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-align: left;
+    padding: 0.5rem 1rem !important;
+  }
 }
 
 .navbar-vinoteca .nav-link::after {

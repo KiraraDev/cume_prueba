@@ -371,7 +371,7 @@ function handleContactForm(e) {
 
 // --- Catas Form (Google Sheets vía Apps Script) ---
 // Pega aquí la URL del Web App desplegado en Google Apps Script.
-const CATAS_ENDPOINT = 'https://script.google.com/macros/s/REEMPLAZAR_CON_TU_ID/exec';
+const CATAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzgLJ8tH2XMxCHU75-LWWgk2Hk6iLwQaG3sUXSEGKiDXtVEDpD96_K7-Uzf6l3fONXt/exec';
 
 function catasEndpointReady() {
   return CATAS_ENDPOINT && !CATAS_ENDPOINT.includes('REEMPLAZAR');

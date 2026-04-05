@@ -111,6 +111,12 @@ img {
   transition: color 0.3s ease;
 }
 
+.navbar-vinoteca .nav-link.nav-link-compact {
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  padding: 0.5rem 0.7rem !important;
+}
+
 .navbar-vinoteca .nav-link::after {
   content: '';
   position: absolute;

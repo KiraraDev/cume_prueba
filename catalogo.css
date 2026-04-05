@@ -181,6 +181,59 @@
   color: var(--gold, #d4a574);
 }
 
+/* --- Pedidos (sección clara) --- */
+.section-stone .contact-form .form-control {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--charcoal, #2c2420);
+  border-radius: 0;
+  padding: 0.85rem 1rem;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.92rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-stone .contact-form .form-control:focus {
+  border-color: var(--wine, #722f37);
+  box-shadow: 0 0 0 2px rgba(114, 47, 55, 0.1);
+  background: #fff;
+}
+
+.section-stone .contact-form .form-control::placeholder {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.section-stone .contact-form .form-label {
+  font-size: 0.82rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted, #6b5d4f);
+}
+
+.pedidos-contacto .contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.pedidos-contacto .contact-info-item svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: var(--wine, #722f37);
+  margin-top: 0.15rem;
+}
+
+.pedidos-contacto .contact-info-item a {
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.pedidos-contacto .contact-info-item a:hover {
+  opacity: 0.75;
+}
+
 /* --- Responsive --- */
 @media (max-width: 991.98px) {
   .catalogo-hero-content h1 {

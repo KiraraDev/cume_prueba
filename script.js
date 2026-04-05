@@ -119,9 +119,24 @@ const translations = {
     'cat-v7-desc': 'Elaborado junto a Roseta Míguez. Uvas tintas con bajo porcentaje de raspón y hollejos, las blancas añadidas durante la fermentación. Fermentado y criado en acero inoxidable. Solo 1.355 botellas.',
     'cat-v8-desc': 'Uvas de viticultura sostenible sobre suelos de granito descompuesto y arcilla, entre 100 y 240 m de altitud. Fermentación espontánea, 6 meses de crianza en acero sobre lías. Solo uvas, sin correcciones enológicas.',
     'cat-v9-desc': 'Viticultura sostenible, suelos de granito y arcilla. Fermentación espontánea 3 semanas con racimos enteros en depósito de acero, 2 meses en tinas viejas de castaño y 12 meses en acero inoxidable. Solo uvas, sin correcciones.',
-    'cat-cta-title': '¿Quieres probar nuestros vinos?',
-    'cat-cta-text': 'Visítanos en la vinoteca o apúntate a la próxima cata.',
     'cat-cta-btn': 'Ver próxima cata',
+    'cat-pedidos-title': 'Haz tu pedido',
+    'cat-pedidos-subtitle': 'Contacta con nosotros para hacer tu pedido o resolver cualquier duda',
+    'cat-ped-name-label': 'Nombre',
+    'cat-ped-name-ph': 'Tu nombre',
+    'cat-ped-email-label': 'Email',
+    'cat-ped-email-ph': 'Tu correo electrónico',
+    'cat-ped-phone-label': 'Teléfono (opcional)',
+    'cat-ped-phone-ph': 'Tu teléfono de contacto',
+    'cat-ped-msg-label': 'Tu pedido o consulta',
+    'cat-ped-msg-ph': 'Indícanos los vinos y cantidades que te interesan',
+    'cat-ped-btn': 'Enviar pedido',
+    'cat-ped-success-title': '¡Pedido enviado!',
+    'cat-ped-success-text': 'Hemos recibido tu solicitud. Te responderemos lo antes posible.',
+    'cat-ped-tel-label': 'Teléfono de pedidos',
+    'cat-ped-horario-label': 'Horario de atención',
+    'cat-ped-horario': 'Lunes a viernes: 10:00 - 14:00 / 17:00 - 20:00',
+    'cat-ped-envio': 'Realizamos envíos a toda la península. Consulta condiciones para pedidos fuera de Galicia.',
 
     // Puntos de venta
     'pdv-title': 'Puntos de venta',
@@ -270,9 +285,24 @@ const translations = {
     'cat-v7-desc': 'Elaborado xunto a Roseta Míguez. Uvas tintas con baixo porcentaxe de raspón e pelexos, as brancas engadidas durante a fermentación. Fermentado e criado en aceiro inoxidable. Só 1.355 botellas.',
     'cat-v8-desc': 'Uvas de viticultura sostible sobre solos de granito descomposto e arxila, entre 100 e 240 m de altitude. Fermentación espontánea, 6 meses de crianza en aceiro sobre borras. Só uvas, sen correccións enolóxicas.',
     'cat-v9-desc': 'Viticultura sostible, solos de granito e arxila. Fermentación espontánea 3 semanas con acios enteiros en depósito de aceiro, 2 meses en tinas vellas de castiñeiro e 12 meses en aceiro inoxidable. Só uvas, sen correccións.',
-    'cat-cta-title': 'Queres probar os nosos viños?',
-    'cat-cta-text': 'Visítanos na vinoteca ou apúntate á próxima cata.',
     'cat-cta-btn': 'Ver próxima cata',
+    'cat-pedidos-title': 'Fai o teu pedido',
+    'cat-pedidos-subtitle': 'Contacta connosco para facer o teu pedido ou resolver calquera dúbida',
+    'cat-ped-name-label': 'Nome',
+    'cat-ped-name-ph': 'O teu nome',
+    'cat-ped-email-label': 'Email',
+    'cat-ped-email-ph': 'O teu correo electrónico',
+    'cat-ped-phone-label': 'Teléfono (opcional)',
+    'cat-ped-phone-ph': 'O teu teléfono de contacto',
+    'cat-ped-msg-label': 'O teu pedido ou consulta',
+    'cat-ped-msg-ph': 'Indícanos os viños e cantidades que che interesan',
+    'cat-ped-btn': 'Enviar pedido',
+    'cat-ped-success-title': 'Pedido enviado!',
+    'cat-ped-success-text': 'Recibimos a túa solicitude. Responderémosche canto antes.',
+    'cat-ped-tel-label': 'Teléfono de pedidos',
+    'cat-ped-horario-label': 'Horario de atención',
+    'cat-ped-horario': 'Luns a venres: 10:00 - 14:00 / 17:00 - 20:00',
+    'cat-ped-envio': 'Realizamos envíos a toda a península. Consulta condicións para pedidos fóra de Galicia.',
 
     // Puntos de venta
     'pdv-title': 'Puntos de venda',
@@ -614,6 +644,48 @@ document.addEventListener('DOMContentLoaded', function () {
   if (catasForm) {
     catasForm.addEventListener('submit', handleCatasForm);
     checkCatasStatus();
+  }
+
+  // Pedidos form (catálogo) — misma lógica que contacto vía Formsubmit
+  const pedidosForm = document.getElementById('pedidos-form');
+  if (pedidosForm) {
+    pedidosForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const success = document.getElementById('pedidos-success');
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: form.querySelector('[name="name"]').value,
+          email: form.querySelector('[name="email"]').value,
+          phone: form.querySelector('[name="phone"]').value,
+          message: form.querySelector('[name="message"]').value,
+          _subject: form.querySelector('[name="_subject"]').value
+        })
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.success) {
+          form.style.display = 'none';
+          success.classList.add('show');
+        } else {
+          btn.disabled = false;
+          btn.textContent = originalText;
+          alert('Error al enviar. Inténtalo de nuevo.');
+        }
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = originalText;
+        alert('Error al enviar. Inténtalo de nuevo.');
+      });
+    });
   }
 
   // Cargar configuración dinámica desde Google Sheets (funciona en todas las páginas)

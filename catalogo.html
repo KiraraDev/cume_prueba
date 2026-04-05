@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Vinos · Vinoteca Cume do Avia</title>
+    <meta name="description" content="Catálogo completo de vinos de la bodega Cume do Avia. Vinos ecológicos D.O. Ribeiro elaborados con variedades autóctonas gallegas.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="catalogo.css">
+</head>
+<body>
+
+    <!-- ======== NAVBAR ======== -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-vinoteca fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Cume do Avia <span>· Vinoteca</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html#proyecto" data-i18n="nav-proyecto">Proyecto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#bodega" data-i18n="nav-bodega">Bodega</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#experiencia" data-i18n="nav-experiencia">Experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="catalogo.html" data-i18n="nav-catalogo">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#catas" data-i18n="nav-catas">Catas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacto" data-i18n="nav-contacto">Contacto</a></li>
+                    <li class="nav-item">
+                        <div class="lang-selector">
+                            <button class="lang-btn active" data-lang="es">ES</button>
+                            <button class="lang-btn" data-lang="gl">GL</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ======== HERO CATÁLOGO ======== -->
+    <section class="catalogo-hero">
+        <div class="catalogo-hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="catalogo-hero-content">
+            <p class="hero-pretitle">D.O. Ribeiro · Galicia</p>
+            <h1 data-i18n="cat-hero-title">Nuestros vinos</h1>
+            <div class="hero-divider"></div>
+            <p class="hero-subtitle" data-i18n="cat-hero-subtitle">Vinos ecológicos elaborados con variedades autóctonas, fermentación espontánea y mínima intervención.</p>
+        </div>
+    </section>
+
+    <!-- ======== GAMA CUME DO AVIA ======== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-i18n="cat-gama1-title">Gama Cume do Avia</h2>
+                <div class="section-line"></div>
+                <p data-i18n="cat-gama1-subtitle">Vinos ecológicos de viñedo propio</p>
+            </div>
+
+            <!-- Vino 1: Colleita N.10 Branco -->
+            <div class="vino-ficha reveal">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-4">
+                        <div class="vino-img-wrapper">
+                            <img src="https://cumedoavia.com/wp-content/uploads/2024/10/colleita-10-branco.jpeg" alt="Colleita N.10 Branco" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <span class="vino-tipo vino-blanco" data-i18n="cat-tipo-blanco">Blanco</span>
+                        <h3 class="vino-nombre">Colleita N.10 Branco</h3>
+                        <div class="vino-meta">
+                            <span class="vino-anada" data-config="vino_1_anada">2022</span>
+                            <span class="vino-sep">·</span>
+                            <span>D.O. Ribeiro</span>
+                            <span class="vino-sep">·</span>
+                            <span data-i18n="cat-eco">Ecológico</span>
+                        </div>
+                        <p class="vino-uvas"><strong data-i18n="cat-uvas">Uvas:</strong> Treixadura (52%), Albariño (20%), Lado (10%), Caíño Branco (8%), Loureira (8%), Godello (2%)</p>
+                        <p class="vino-desc" data-i18n="cat-v1-desc">Ensamblaje de varios vinos. La parte principal es Treixadura sin filtrar, fermentada en acero inoxidable; otra parte (Albariño, Lado, Caíño Branco, Loureira) criada en castaño. 6 meses en castaño y 5 meses en acero. Viñedo Eira de Mouros.</p>
+                        <div class="vino-precio-box">
+                            <span class="vino-precio" data-config="vino_1_precio">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vino 2: Colleita N.10 Tinto -->
+            <div class="vino-ficha reveal">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-4 order-lg-2">
+                        <div class="vino-img-wrapper">
+                            <img src="https://cumedoavia.com/wp-content/uploads/2024/10/colleita-10-tinto.jpeg" alt="Colleita N.10 Tinto" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-8 order-lg-1">
+                        <span class="vino-tipo vino-tinto" data-i18n="cat-tipo-tinto">Tinto</span>
+                        <h3 class="vino-nombre">Colleita N.10 Tinto</h3>
+                        <div class="vino-meta">
+                            <span class="vino-anada" data-config="vino_2_anada">2022</span>
+                            <span class="vino-sep">·</span>
+                            <span>D.O. Ribeiro</span>
+                            <span class="vino-sep">·</span>
+                            <span data-i18n="cat-eco">Ecológico</span>
+                        </div>
+                        <p class="vino-uvas"><strong data-i18n="cat-uvas">Uvas:</strong> Caíño Longo (50%), Sousón (29%), Brancellao (9%), Merenzao (6%), Carabunenta (3%), Ferrón (3%)</p>
+                        <p class="vino-desc" data-i18n="cat-v2-desc">Todas las variedades fermentadas juntas en tina antigua de castaño restaurada. 40% de raspón, maceración de más de dos semanas, crianza en la misma tina. Viñedo Eira de Mouros.</p>
+                        <div class="vino-precio-box">
+                            <span class="vino-precio" data-config="vino_2_precio">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vino 3: Branco dos Canotos -->
+            <div class="vino-ficha reveal">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-4">
+                        <div class="vino-img-wrapper">
+                            <img src="https://cumedoavia.com/wp-content/uploads/2024/10/branco-dos-canotos.jpeg" alt="Branco dos Canotos" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <span class="vino-tipo vino-blanco" data-i18n="cat-tipo-blanco">Blanco</span>
+                        <h3 class="vino-nombre">Branco dos Canotos</h3>
+                        <div class="vino-meta">
+                            <span class="vino-anada" data-config="vino_3_anada">2022</span>
+                            <span class="vino-sep">·</span>
+                            <span>D.O. Ribeiro</span>
+                            <span class="vino-sep">·</span>
+                            <span data-i18n="cat-eco">Ecológico</span>
+                        </div>
+                        <p class="vino-uvas"><strong data-i18n="cat-uvas">Uvas:</strong> Albariño (30%), Lado (28%), Caíño Branco (22%), Loureira (20%)</p>
+                        <p class="vino-desc" data-i18n="cat-v3-desc">Fermentado y criado en dos tinas antiguas de castaño. Fermentación maloláctica completa a partir de Albariño. Solo 910 botellas producidas. Viñedo Eira de Mouros.</p>
+                        <div class="vino-precio-box">
+                            <span class="vino-precio" data-config="vino_3_precio">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vino 4: Brancellao dos Canotos -->
+            <div class="vino-ficha reveal">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-4 order-lg-2">
+                        <div class="vino-img-wrapper">
+                            <img src="https://cumedoavia.com/wp-content/uploads/2024/10/brancellao-dos-canotos.png" alt="Brancellao dos Canotos" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-8 order-lg-1">
+                        <span class="vino-tipo vino-tinto" data-i18n="cat-tipo-tinto">Tinto</span>
+                        <h3 class="vino-nombre">Brancellao dos Canotos</h3>
+                        <div class="vino-meta">
+                            <span class="vino-anada" data-config="vino_4_anada">2022</span>
+                            <span class="vino-sep">·</span>
+                            <span>D.O. Ribeiro</span>
+                            <span class="vino-sep">·</span>
+                            <span data-i18n="cat-eco">Ecológico</span>
+                        </div>
+                        <p class="vino-uvas"><strong data-i18n="cat-uvas">Uvas:</strong> Brancellao 100%</p>
+                        <p class="vino-desc" data-i18n="cat-v4-desc">Monovarietal de Brancellao. Macerado con 45% de raspón durante dos semanas, criado en barrica de roble de 700 litros. Solo 903 botellas. Viñedo Eira de Mouros.</p>
+                        <div class="vino-precio-box">
+                            <span class="vino-precio" data-config="vino_4_precio">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vino 5: Arraiano Branco -->
+            <div class="vino-ficha reveal">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-4">
+                        <div class="vino-img-wrapper">
+                            <img src="https://cumedoavia.com/wp-content/uploads/2024/10/arraiano-blanco.png" alt="Arraiano Branco" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <span class="vino-tipo vino-blanco" data-i18n="cat-tipo-blanco">Blanco</span>
+                        <h3 class="vino-nombre">Arraiano Branco</h3>
+                        <div class="vino-meta">
+                            <span class="vino-anada" data-config="vino_5_anada">2022</span>
+                            <span class="vino-sep">·</span>
+                            <span>D.O. Ribeiro</span>
+                        </div>
+                        <p class="vino-uvas"><strong data-i18n="cat-uvas">Uvas:</strong> Treixadura (65%), Albariño (10%), Caíño Branco (7%), Lado (6%), Loureira (6%), Jerez (6%)</p>
+                        <p class="vino-desc" data-i18n="cat-v5-desc">Todas las variedades vinificadas juntas en acero inoxidable sin desfangado. Parte del Albariño fermentado y criado en castaño. Viticultura sostenible.</p>
+                        <div class="vino-precio-box">
+                            <span class="vino-precio" data-config="vino_5_precio">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vino 6: Arraiano Tinto -->
+            <div class="vino-ficha reveal">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-4 order-lg-2">
+                        <div class="vino-img-wrapper">
+                            <img src="https://cumedoavia.com/wp-content/uploads/2024/10/arraiano-tinto.png" alt="Arraiano Tinto" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-8 order-lg-1">
+                        <span class="vino-tipo vino-tinto" data-i18n="cat-tipo-tinto">Tinto</span>
+                        <h3 class="vino-nombre">Arraiano Tinto</h3>
+                        <div class="vino-meta">
+                            <span class="vino-anada" data-config="vino_6_anada">2022</span>
+                            <span class="vino-sep">·</span>
+                            <span>D.O. Ribeiro</span>
+                        </div>
+                        <p class="vino-uvas"><strong data-i18n="cat-uvas">Uvas:</strong> Caíño Longo (38%), Sousón (24%), Brancellao (20%) y otras (16%)</p>
+                        <p class="vino-desc" data-i18n="cat-v6-desc">Todas las variedades fermentadas juntas en tina antigua de castaño restaurada. 40% de raspón, maceración de 3 semanas, 10 meses de crianza en la misma tina. Viticultura sostenible.</p>
+                        <div class="vino-precio-box">
+                            <span class="vino-precio" data-config="vino_6_precio">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== GAMA SENTIVINO ======== -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-i18n="cat-gama2-title">Gama Sentivino</h2>
+                <div class="section-line"></div>
+                <p data-i18n="cat-gama2-subtitle">Vinos accesibles, misma filosofía</p>
+            </div>
+
+            <!-- Vino 7: Rosete -->
+            <div class="vino-ficha vino-ficha-dark reveal">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-4">
+                        <div class="vino-img-wrapper">
+                            <img src="https://cumedoavia.com/wp-content/uploads/2024/10/ROSETE-cume-do-avia-2.png" alt="Rosete" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <span class="vino-tipo vino-rosado" data-i18n="cat-tipo-rosado">Rosado</span>
+                        <h3 class="vino-nombre">Rosete</h3>
+                        <div class="vino-meta">
+                            <span class="vino-anada" data-config="vino_7_anada">2021</span>
+                            <span class="vino-sep">·</span>
+                            <span>D.O. Ribeiro</span>
+                        </div>
+                        <p class="vino-uvas"><strong data-i18n="cat-uvas">Uvas:</strong> Caíño Longo (82%), Brancellao + Sousón + Carabunenta + Ferrón (10%), Treixadura + Albariño + Loureira + Lado + Caíño Branco (8%)</p>
+                        <p class="vino-desc" data-i18n="cat-v7-desc">Elaborado junto a Roseta Míguez. Uvas tintas con bajo porcentaje de raspón y hollejos, las blancas añadidas durante la fermentación. Fermentado y criado en acero inoxidable. Solo 1.355 botellas.</p>
+                        <div class="vino-precio-box">
+                            <span class="vino-precio" data-config="vino_7_precio">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vino 8: T-Reix -->
+            <div class="vino-ficha vino-ficha-dark reveal">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-4 order-lg-2">
+                        <div class="vino-img-wrapper">
+                            <img src="https://cumedoavia.com/wp-content/uploads/2024/10/T-REIX-cume-do-avia.png" alt="T-Reix" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-8 order-lg-1">
+                        <span class="vino-tipo vino-blanco" data-i18n="cat-tipo-blanco">Blanco</span>
+                        <h3 class="vino-nombre">T-Reix</h3>
+                        <div class="vino-meta">
+                            <span class="vino-anada" data-config="vino_8_anada">2022</span>
+                            <span class="vino-sep">·</span>
+                            <span>D.O. Ribeiro</span>
+                        </div>
+                        <p class="vino-uvas"><strong data-i18n="cat-uvas">Uvas:</strong> Treixadura (83%), Albariño + Godello + Loureira (17%)</p>
+                        <p class="vino-desc" data-i18n="cat-v8-desc">Uvas de viticultura sostenible sobre suelos de granito descompuesto y arcilla, entre 100 y 240 m de altitud. Fermentación espontánea, 6 meses de crianza en acero sobre lías. Solo uvas, sin correcciones enológicas.</p>
+                        <div class="vino-precio-box">
+                            <span class="vino-precio" data-config="vino_8_precio">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vino 9: T-Red -->
+            <div class="vino-ficha vino-ficha-dark reveal">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-4">
+                        <div class="vino-img-wrapper">
+                            <img src="https://cumedoavia.com/wp-content/uploads/2024/10/T-RED-cume-do-avia.png" alt="T-Red" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <span class="vino-tipo vino-tinto" data-i18n="cat-tipo-tinto">Tinto</span>
+                        <h3 class="vino-nombre">T-Red</h3>
+                        <div class="vino-meta">
+                            <span class="vino-anada" data-config="vino_9_anada">2022</span>
+                            <span class="vino-sep">·</span>
+                            <span>D.O. Ribeiro</span>
+                        </div>
+                        <p class="vino-uvas"><strong data-i18n="cat-uvas">Uvas:</strong> Mencía (60%), Caíño Longo + Brancellao + Sousón y otras (40%)</p>
+                        <p class="vino-desc" data-i18n="cat-v9-desc">Viticultura sostenible, suelos de granito y arcilla. Fermentación espontánea 3 semanas con racimos enteros en depósito de acero, 2 meses en tinas viejas de castaño y 12 meses en acero inoxidable. Solo uvas, sin correcciones.</p>
+                        <div class="vino-precio-box">
+                            <span class="vino-precio" data-config="vino_9_precio">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== CTA ======== -->
+    <section class="section section-wine" style="padding: 4rem 0;">
+        <div class="container text-center reveal">
+            <h3 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 2rem; margin-bottom: 1rem;" data-i18n="cat-cta-title">¿Quieres probar nuestros vinos?</h3>
+            <p style="font-size: 1.05rem; margin-bottom: 1.5rem;" data-i18n="cat-cta-text">Visítanos en la vinoteca o apúntate a la próxima cata.</p>
+            <a href="index.html#catas" class="btn btn-wine" data-i18n="cat-cta-btn">Ver próxima cata</a>
+        </div>
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5>Vinoteca Cume do Avia</h5>
+                    <p data-i18n="footer-desc">Un espacio para descubrir y compartir el vino del Ribeiro en el corazón de Ribadavia.</p>
+                    <div class="footer-social mt-3">
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="mb-3" style="font-size: 1rem; letter-spacing: 1px;" data-i18n="footer-nav-title">Navegación</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html#proyecto" data-i18n="nav-proyecto">Proyecto</a></li>
+                        <li class="mb-2"><a href="index.html#bodega" data-i18n="nav-bodega">Bodega</a></li>
+                        <li class="mb-2"><a href="catalogo.html" data-i18n="nav-catalogo">Catálogo</a></li>
+                        <li class="mb-2"><a href="index.html#catas" data-i18n="nav-catas">Catas</a></li>
+                        <li class="mb-2"><a href="index.html#contacto" data-i18n="nav-contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="mb-3" style="font-size: 1rem; letter-spacing: 1px;" data-i18n="footer-contact-title">Contacto</h5>
+                    <p>Ribadavia, Ourense<br>Galicia, España</p>
+                    <p data-i18n="footer-project" style="display: inline;">Un proyecto vinculado a</p> <a href="https://cumedoavia.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer-bodega">Bodega Cume do Avia</a>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p data-i18n="footer-copy">© 2026 Vinoteca Cume do Avia · Ribadavia, Ourense.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+/* ============================================
+   CATÁLOGO — Estilos específicos
+   ============================================ */
+
+/* --- Hero --- */
+.catalogo-hero {
+  position: relative;
+  height: 55vh;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.catalogo-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://cumedoavia.com/wp-content/uploads/2024/10/cume-do-avia-vinos.jpeg') center/cover no-repeat;
+  transform: scale(1.05);
+}
+
+.catalogo-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 1rem;
+  color: var(--cream, #f5f0e8);
+}
+
+.catalogo-hero-content h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+}
+
+/* --- Fichas de vino --- */
+.vino-ficha {
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.vino-ficha:last-child {
+  border-bottom: none;
+}
+
+.vino-ficha-dark {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.vino-img-wrapper {
+  text-align: center;
+  padding: 1rem;
+}
+
+.vino-img-wrapper img {
+  max-height: 420px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
+  transition: transform 0.4s ease;
+}
+
+.vino-ficha:hover .vino-img-wrapper img {
+  transform: scale(1.03);
+}
+
+.vino-tipo {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-family: 'Lora', Georgia, serif;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.9rem;
+  margin-bottom: 0.75rem;
+  border-radius: 2px;
+}
+
+.vino-blanco {
+  background: rgba(212, 165, 116, 0.15);
+  color: #a88a5c;
+}
+
+.vino-tinto {
+  background: rgba(114, 47, 55, 0.12);
+  color: #722f37;
+}
+
+.vino-rosado {
+  background: rgba(193, 112, 120, 0.15);
+  color: #b85a6a;
+}
+
+.vino-ficha-dark .vino-blanco {
+  background: rgba(212, 165, 116, 0.2);
+  color: #d4a574;
+}
+
+.vino-ficha-dark .vino-tinto {
+  background: rgba(180, 100, 110, 0.2);
+  color: #d4828a;
+}
+
+.vino-ficha-dark .vino-rosado {
+  background: rgba(193, 112, 120, 0.2);
+  color: #dba0a8;
+}
+
+.vino-nombre {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.vino-meta {
+  font-size: 0.88rem;
+  letter-spacing: 1px;
+  color: var(--text-muted, #6b5d4f);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.vino-ficha-dark .vino-meta {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.vino-sep {
+  opacity: 0.4;
+}
+
+.vino-anada {
+  font-weight: 600;
+}
+
+.vino-uvas {
+  font-size: 0.92rem;
+  margin-bottom: 0.75rem;
+}
+
+.vino-uvas strong {
+  color: var(--wine, #722f37);
+}
+
+.vino-ficha-dark .vino-uvas strong {
+  color: var(--gold, #d4a574);
+}
+
+.vino-desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.vino-precio-box {
+  display: inline-block;
+  border: 1px solid var(--wine, #722f37);
+  padding: 0.4rem 1.5rem;
+}
+
+.vino-ficha-dark .vino-precio-box {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.vino-precio {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--wine, #722f37);
+}
+
+.vino-ficha-dark .vino-precio {
+  color: var(--gold, #d4a574);
+}
+
+/* --- Responsive --- */
+@media (max-width: 991.98px) {
+  .catalogo-hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .vino-nombre {
+    font-size: 1.75rem;
+  }
+
+  .vino-img-wrapper img {
+    max-height: 300px;
+  }
+
+  .vino-ficha {
+    padding: 2rem 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .catalogo-hero {
+    height: 45vh;
+    min-height: 300px;
+  }
+
+  .catalogo-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .vino-nombre {
+    font-size: 1.5rem;
+  }
+}

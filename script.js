@@ -14,6 +14,7 @@ const translations = {
     'nav-galeria': 'Galería',
     'nav-pdv': 'Puntos de venta',
     'nav-pdv-stack': 'Puntos\nde\nventa',
+    'nav-catalogo': 'Catálogo',
     'nav-catas': 'Catas',
     'nav-contacto': 'Contacto',
 
@@ -97,6 +98,31 @@ const translations = {
     'contact-success-title': 'Mensaje enviado',
     'contact-success-text': 'Gracias por tu interés. Nos pondremos en contacto contigo pronto.',
 
+    // Catálogo
+    'cat-hero-title': 'Nuestros vinos',
+    'cat-hero-subtitle': 'Vinos ecológicos elaborados con variedades autóctonas, fermentación espontánea y mínima intervención.',
+    'cat-gama1-title': 'Gama Cume do Avia',
+    'cat-gama1-subtitle': 'Vinos ecológicos de viñedo propio',
+    'cat-gama2-title': 'Gama Sentivino',
+    'cat-gama2-subtitle': 'Vinos accesibles, misma filosofía',
+    'cat-tipo-blanco': 'Blanco',
+    'cat-tipo-tinto': 'Tinto',
+    'cat-tipo-rosado': 'Rosado',
+    'cat-eco': 'Ecológico',
+    'cat-uvas': 'Uvas:',
+    'cat-v1-desc': 'Ensamblaje de varios vinos. La parte principal es Treixadura sin filtrar, fermentada en acero inoxidable; otra parte (Albariño, Lado, Caíño Branco, Loureira) criada en castaño. 6 meses en castaño y 5 meses en acero. Viñedo Eira de Mouros.',
+    'cat-v2-desc': 'Todas las variedades fermentadas juntas en tina antigua de castaño restaurada. 40% de raspón, maceración de más de dos semanas, crianza en la misma tina. Viñedo Eira de Mouros.',
+    'cat-v3-desc': 'Fermentado y criado en dos tinas antiguas de castaño. Fermentación maloláctica completa a partir de Albariño. Solo 910 botellas producidas. Viñedo Eira de Mouros.',
+    'cat-v4-desc': 'Monovarietal de Brancellao. Macerado con 45% de raspón durante dos semanas, criado en barrica de roble de 700 litros. Solo 903 botellas. Viñedo Eira de Mouros.',
+    'cat-v5-desc': 'Todas las variedades vinificadas juntas en acero inoxidable sin desfangado. Parte del Albariño fermentado y criado en castaño. Viticultura sostenible.',
+    'cat-v6-desc': 'Todas las variedades fermentadas juntas en tina antigua de castaño restaurada. 40% de raspón, maceración de 3 semanas, 10 meses de crianza en la misma tina. Viticultura sostenible.',
+    'cat-v7-desc': 'Elaborado junto a Roseta Míguez. Uvas tintas con bajo porcentaje de raspón y hollejos, las blancas añadidas durante la fermentación. Fermentado y criado en acero inoxidable. Solo 1.355 botellas.',
+    'cat-v8-desc': 'Uvas de viticultura sostenible sobre suelos de granito descompuesto y arcilla, entre 100 y 240 m de altitud. Fermentación espontánea, 6 meses de crianza en acero sobre lías. Solo uvas, sin correcciones enológicas.',
+    'cat-v9-desc': 'Viticultura sostenible, suelos de granito y arcilla. Fermentación espontánea 3 semanas con racimos enteros en depósito de acero, 2 meses en tinas viejas de castaño y 12 meses en acero inoxidable. Solo uvas, sin correcciones.',
+    'cat-cta-title': '¿Quieres probar nuestros vinos?',
+    'cat-cta-text': 'Visítanos en la vinoteca o apúntate a la próxima cata.',
+    'cat-cta-btn': 'Ver próxima cata',
+
     // Puntos de venta
     'pdv-title': 'Puntos de venta',
     'pdv-subtitle': 'Dónde encontrar nuestros vinos',
@@ -139,6 +165,7 @@ const translations = {
     'nav-galeria': 'Galería',
     'nav-pdv': 'Puntos de venda',
     'nav-pdv-stack': 'Puntos\nde\nvenda',
+    'nav-catalogo': 'Catálogo',
     'nav-catas': 'Catas',
     'nav-contacto': 'Contacto',
 
@@ -221,6 +248,31 @@ const translations = {
     'contact-location': 'Ribadavia, Ourense, Galicia',
     'contact-success-title': 'Mensaxe enviada',
     'contact-success-text': 'Grazas polo teu interese. Poñerémonos en contacto contigo pronto.',
+
+    // Catálogo
+    'cat-hero-title': 'Os nosos viños',
+    'cat-hero-subtitle': 'Viños ecolóxicos elaborados con variedades autóctonas, fermentación espontánea e mínima intervención.',
+    'cat-gama1-title': 'Gama Cume do Avia',
+    'cat-gama1-subtitle': 'Viños ecolóxicos de viñedo propio',
+    'cat-gama2-title': 'Gama Sentivino',
+    'cat-gama2-subtitle': 'Viños accesibles, mesma filosofía',
+    'cat-tipo-blanco': 'Branco',
+    'cat-tipo-tinto': 'Tinto',
+    'cat-tipo-rosado': 'Rosado',
+    'cat-eco': 'Ecolóxico',
+    'cat-uvas': 'Uvas:',
+    'cat-v1-desc': 'Ensamblaxe de varios viños. A parte principal é Treixadura sen filtrar, fermentada en aceiro inoxidable; outra parte (Albariño, Lado, Caíño Branco, Loureira) criada en castiñeiro. 6 meses en castiñeiro e 5 meses en aceiro. Viñedo Eira de Mouros.',
+    'cat-v2-desc': 'Todas as variedades fermentadas xuntas en tina antiga de castiñeiro restaurada. 40% de raspón, maceración de máis de dúas semanas, crianza na mesma tina. Viñedo Eira de Mouros.',
+    'cat-v3-desc': 'Fermentado e criado en dúas tinas antigas de castiñeiro. Fermentación maloláctica completa a partir de Albariño. Só 910 botellas producidas. Viñedo Eira de Mouros.',
+    'cat-v4-desc': 'Monovarietal de Brancellao. Macerado con 45% de raspón durante dúas semanas, criado en barrica de carballo de 700 litros. Só 903 botellas. Viñedo Eira de Mouros.',
+    'cat-v5-desc': 'Todas as variedades vinificadas xuntas en aceiro inoxidable sen desfangado. Parte do Albariño fermentado e criado en castiñeiro. Viticultura sostible.',
+    'cat-v6-desc': 'Todas as variedades fermentadas xuntas en tina antiga de castiñeiro restaurada. 40% de raspón, maceración de 3 semanas, 10 meses de crianza na mesma tina. Viticultura sostible.',
+    'cat-v7-desc': 'Elaborado xunto a Roseta Míguez. Uvas tintas con baixo porcentaxe de raspón e pelexos, as brancas engadidas durante a fermentación. Fermentado e criado en aceiro inoxidable. Só 1.355 botellas.',
+    'cat-v8-desc': 'Uvas de viticultura sostible sobre solos de granito descomposto e arxila, entre 100 e 240 m de altitude. Fermentación espontánea, 6 meses de crianza en aceiro sobre borras. Só uvas, sen correccións enolóxicas.',
+    'cat-v9-desc': 'Viticultura sostible, solos de granito e arxila. Fermentación espontánea 3 semanas con acios enteiros en depósito de aceiro, 2 meses en tinas vellas de castiñeiro e 12 meses en aceiro inoxidable. Só uvas, sen correccións.',
+    'cat-cta-title': 'Queres probar os nosos viños?',
+    'cat-cta-text': 'Visítanos na vinoteca ou apúntate á próxima cata.',
+    'cat-cta-btn': 'Ver próxima cata',
 
     // Puntos de venta
     'pdv-title': 'Puntos de venda',
@@ -407,29 +459,32 @@ async function checkCatasStatus() {
   }
 }
 
-async function loadCatasConfig() {
+async function loadSiteConfig() {
   if (!catasEndpointReady()) return;
   try {
     const res = await fetch(CATAS_ENDPOINT + '?action=config');
     const cfg = await res.json();
     if (!cfg) return;
-    const infoBlock = document.getElementById('catas-info');
-    const fechaEl = document.getElementById('catas-fecha');
-    const precioEl = document.getElementById('catas-precio');
-    let hasContent = false;
-    if (cfg.catas_fecha && fechaEl) {
-      fechaEl.textContent = cfg.catas_fecha;
-      hasContent = true;
-    }
-    if (cfg.catas_precio && precioEl) {
-      precioEl.textContent = cfg.catas_precio;
-      hasContent = true;
-    }
-    if (hasContent && infoBlock) {
+
+    // Inyectar valores en cualquier elemento con data-config="clave"
+    document.querySelectorAll('[data-config]').forEach(function(el) {
+      var key = el.getAttribute('data-config');
+      if (cfg[key] !== undefined && cfg[key] !== '') {
+        el.textContent = cfg[key];
+      }
+    });
+
+    // Mostrar bloque de info de catas si hay fecha o precio
+    var infoBlock = document.getElementById('catas-info');
+    if (infoBlock && (cfg.catas_fecha || cfg.catas_precio)) {
+      var fechaEl = document.getElementById('catas-fecha');
+      var precioEl = document.getElementById('catas-precio');
+      if (cfg.catas_fecha && fechaEl) fechaEl.textContent = cfg.catas_fecha;
+      if (cfg.catas_precio && precioEl) precioEl.textContent = cfg.catas_precio;
       infoBlock.style.display = '';
     }
   } catch (err) {
-    console.warn('No se pudo cargar la configuración de catas', err);
+    console.warn('No se pudo cargar la configuración', err);
   }
 }
 
@@ -559,8 +614,10 @@ document.addEventListener('DOMContentLoaded', function () {
   if (catasForm) {
     catasForm.addEventListener('submit', handleCatasForm);
     checkCatasStatus();
-    loadCatasConfig();
   }
+
+  // Cargar configuración dinámica desde Google Sheets (funciona en todas las páginas)
+  loadSiteConfig();
 
   // Close navbar on link click (mobile)
   document.querySelectorAll('.navbar-vinoteca .nav-link').forEach(link => {

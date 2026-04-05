@@ -407,6 +407,32 @@ async function checkCatasStatus() {
   }
 }
 
+async function loadCatasConfig() {
+  if (!catasEndpointReady()) return;
+  try {
+    const res = await fetch(CATAS_ENDPOINT + '?action=config');
+    const cfg = await res.json();
+    if (!cfg) return;
+    const infoBlock = document.getElementById('catas-info');
+    const fechaEl = document.getElementById('catas-fecha');
+    const precioEl = document.getElementById('catas-precio');
+    let hasContent = false;
+    if (cfg.catas_fecha && fechaEl) {
+      fechaEl.textContent = cfg.catas_fecha;
+      hasContent = true;
+    }
+    if (cfg.catas_precio && precioEl) {
+      precioEl.textContent = cfg.catas_precio;
+      hasContent = true;
+    }
+    if (hasContent && infoBlock) {
+      infoBlock.style.display = '';
+    }
+  } catch (err) {
+    console.warn('No se pudo cargar la configuración de catas', err);
+  }
+}
+
 function showCatasSuccess(status) {
   const form = document.getElementById('catas-form');
   const success = document.getElementById('catas-success');
@@ -533,6 +559,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (catasForm) {
     catasForm.addEventListener('submit', handleCatasForm);
     checkCatasStatus();
+    loadCatasConfig();
   }
 
   // Close navbar on link click (mobile)

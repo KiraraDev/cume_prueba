@@ -679,8 +679,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // --- Catálogo: sidebar navigation & section loading ---
   const catalogoContent = document.getElementById('catalogo-section-content');
   if (catalogoContent) {
-    const sectionCache = {};
-
     function loadCatalogoSection(section) {
       // Update active states in sidebar and tabs
       document.querySelectorAll('.catalogo-nav-link').forEach(function(link) {
@@ -690,27 +688,13 @@ document.addEventListener('DOMContentLoaded', function () {
         tab.classList.toggle('active', tab.dataset.section === section);
       });
 
-      // If cached, use it
-      if (sectionCache[section]) {
-        catalogoContent.innerHTML = sectionCache[section];
+      // Load from <template> tag
+      var tpl = document.getElementById('tpl-' + section);
+      if (tpl) {
+        catalogoContent.innerHTML = '';
+        catalogoContent.appendChild(tpl.content.cloneNode(true));
         afterSectionLoad();
-        return;
       }
-
-      catalogoContent.classList.add('loading');
-
-      fetch('catalogo/' + section + '.html')
-        .then(function(res) { return res.text(); })
-        .then(function(html) {
-          sectionCache[section] = html;
-          catalogoContent.innerHTML = html;
-          catalogoContent.classList.remove('loading');
-          afterSectionLoad();
-        })
-        .catch(function() {
-          catalogoContent.classList.remove('loading');
-          catalogoContent.innerHTML = '<p style="text-align:center;padding:3rem;">Error al cargar la sección.</p>';
-        });
     }
 
     function afterSectionLoad() {

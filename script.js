@@ -138,17 +138,6 @@ const translations = {
     'cat-ped-horario': 'Lunes a viernes: 10:00 - 14:00 / 17:00 - 20:00',
     'cat-ped-envio': 'Realizamos envíos a toda la península. Consulta condiciones para pedidos fuera de Galicia.',
 
-    // Catálogo — sidebar nav
-    'cat-nav-pedido': 'Realizar pedido',
-    'cat-nav-blancos': 'Blancos',
-    'cat-nav-tintos': 'Tintos',
-    'cat-nav-rosado': 'Rosado',
-    'cat-blancos-subtitle': 'Variedades autóctonas, frescura atlántica',
-    'cat-tintos-subtitle': 'Variedades autóctonas, carácter y profundidad',
-    'cat-rosado-subtitle': 'Color, frescura y personalidad',
-    'cat-cta-title': '¿Quieres probar nuestros vinos?',
-    'cat-cta-text': 'Visítanos en la vinoteca o apúntate a la próxima cata.',
-
     // Puntos de venta
     'pdv-title': 'Puntos de venta',
     'pdv-subtitle': 'Dónde encontrar nuestros vinos',
@@ -314,17 +303,6 @@ const translations = {
     'cat-ped-horario-label': 'Horario de atención',
     'cat-ped-horario': 'Luns a venres: 10:00 - 14:00 / 17:00 - 20:00',
     'cat-ped-envio': 'Realizamos envíos a toda a península. Consulta condicións para pedidos fóra de Galicia.',
-
-    // Catálogo — sidebar nav
-    'cat-nav-pedido': 'Realizar pedido',
-    'cat-nav-blancos': 'Brancos',
-    'cat-nav-tintos': 'Tintos',
-    'cat-nav-rosado': 'Rosado',
-    'cat-blancos-subtitle': 'Variedades autóctonas, frescura atlántica',
-    'cat-tintos-subtitle': 'Variedades autóctonas, carácter e profundidade',
-    'cat-rosado-subtitle': 'Cor, frescura e personalidade',
-    'cat-cta-title': 'Queres probar os nosos viños?',
-    'cat-cta-text': 'Visítanos na vinoteca ou apúntate á próxima cata.',
 
     // Puntos de venta
     'pdv-title': 'Puntos de venda',
@@ -668,6 +646,48 @@ document.addEventListener('DOMContentLoaded', function () {
     checkCatasStatus();
   }
 
+  // Pedidos form (catálogo) — misma lógica que contacto vía Formsubmit
+  const pedidosForm = document.getElementById('pedidos-form');
+  if (pedidosForm) {
+    pedidosForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const success = document.getElementById('pedidos-success');
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: form.querySelector('[name="name"]').value,
+          email: form.querySelector('[name="email"]').value,
+          phone: form.querySelector('[name="phone"]').value,
+          message: form.querySelector('[name="message"]').value,
+          _subject: form.querySelector('[name="_subject"]').value
+        })
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.success) {
+          form.style.display = 'none';
+          success.classList.add('show');
+        } else {
+          btn.disabled = false;
+          btn.textContent = originalText;
+          alert('Error al enviar. Inténtalo de nuevo.');
+        }
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = originalText;
+        alert('Error al enviar. Inténtalo de nuevo.');
+      });
+    });
+  }
+
   // Cargar configuración dinámica desde Google Sheets (funciona en todas las páginas)
   loadSiteConfig();
 
@@ -675,102 +695,4 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.navbar-vinoteca .nav-link').forEach(link => {
     link.addEventListener('click', closeNavbarOnClick);
   });
-
-  // --- Catálogo: sidebar navigation & section loading ---
-  const catalogoContent = document.getElementById('catalogo-section-content');
-  if (catalogoContent) {
-    function loadCatalogoSection(section) {
-      // Update active states in sidebar and tabs
-      document.querySelectorAll('.catalogo-nav-link').forEach(function(link) {
-        link.classList.toggle('active', link.dataset.section === section);
-      });
-      document.querySelectorAll('.catalogo-tab').forEach(function(tab) {
-        tab.classList.toggle('active', tab.dataset.section === section);
-      });
-
-      // Load from <template> tag
-      var tpl = document.getElementById('tpl-' + section);
-      if (tpl) {
-        catalogoContent.innerHTML = '';
-        catalogoContent.appendChild(tpl.content.cloneNode(true));
-        afterSectionLoad();
-      }
-    }
-
-    function afterSectionLoad() {
-      // Re-apply translations
-      setLanguage(currentLang);
-      // Re-apply config data
-      loadSiteConfig();
-      // Re-trigger reveal animations
-      catalogoContent.querySelectorAll('.reveal').forEach(function(el) {
-        el.classList.remove('visible');
-      });
-      setTimeout(handleScrollReveal, 50);
-      // Re-bind pedidos form if loaded
-      bindPedidosForm();
-      // Scroll content into view on mobile
-      if (window.innerWidth < 992) {
-        var tabs = document.getElementById('catalogoTabs');
-        if (tabs) {
-          tabs.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    }
-
-    function bindPedidosForm() {
-      var pedidosForm = document.getElementById('pedidos-form');
-      if (pedidosForm && !pedidosForm.dataset.bound) {
-        pedidosForm.dataset.bound = 'true';
-        pedidosForm.addEventListener('submit', function (e) {
-          e.preventDefault();
-          var form = e.target;
-          var success = document.getElementById('pedidos-success');
-          var btn = form.querySelector('button[type="submit"]');
-          var originalText = btn.textContent;
-          btn.disabled = true;
-          btn.textContent = 'Enviando...';
-
-          fetch(form.action, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({
-              name: form.querySelector('[name="name"]').value,
-              email: form.querySelector('[name="email"]').value,
-              phone: form.querySelector('[name="phone"]').value,
-              message: form.querySelector('[name="message"]').value,
-              _subject: form.querySelector('[name="_subject"]').value
-            })
-          })
-          .then(function (res) { return res.json(); })
-          .then(function (data) {
-            if (data.success) {
-              form.style.display = 'none';
-              success.classList.add('show');
-            } else {
-              btn.disabled = false;
-              btn.textContent = originalText;
-              alert('Error al enviar. Inténtalo de nuevo.');
-            }
-          })
-          .catch(function () {
-            btn.disabled = false;
-            btn.textContent = originalText;
-            alert('Error al enviar. Inténtalo de nuevo.');
-          });
-        });
-      }
-    }
-
-    // Click handlers for sidebar and tabs
-    document.querySelectorAll('.catalogo-nav-link, .catalogo-tab').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        loadCatalogoSection(this.dataset.section);
-      });
-    });
-
-    // Load initial section (pedido)
-    loadCatalogoSection('pedido');
-  }
 });

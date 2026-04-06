@@ -101,6 +101,7 @@ const translations = {
     // Catálogo
     'cat-hero-title': 'Nuestros vinos',
     'cat-hero-subtitle': 'Vinos ecológicos elaborados con variedades autóctonas, fermentación espontánea y mínima intervención.',
+    'cat-hero-btn': 'Hacer un pedido',
     'cat-gama1-title': 'Gama Cume do Avia',
     'cat-gama1-subtitle': 'Vinos ecológicos de viñedo propio',
     'cat-gama2-title': 'Gama Sentivino',
@@ -147,6 +148,7 @@ const translations = {
     // Catas
     'catas-hero-title': 'Catas comentadas',
     'catas-hero-subtitle': 'Descubre los vinos del Ribeiro en sesiones íntimas con productos gallegos.',
+    'catas-hero-btn': 'Apuntarme a la próxima cata',
     'catas-about-title': 'Una experiencia para los sentidos',
     'catas-title': 'Catas',
     'catas-subtitle': 'Apúntate a nuestras catas comentadas',
@@ -285,6 +287,7 @@ const translations = {
     // Catálogo
     'cat-hero-title': 'Os nosos viños',
     'cat-hero-subtitle': 'Viños ecolóxicos elaborados con variedades autóctonas, fermentación espontánea e mínima intervención.',
+    'cat-hero-btn': 'Facer un pedido',
     'cat-gama1-title': 'Gama Cume do Avia',
     'cat-gama1-subtitle': 'Viños ecolóxicos de viñedo propio',
     'cat-gama2-title': 'Gama Sentivino',
@@ -331,6 +334,7 @@ const translations = {
     // Catas
     'catas-hero-title': 'Catas comentadas',
     'catas-hero-subtitle': 'Descubre os viños do Ribeiro en sesións íntimas con produtos galegos.',
+    'catas-hero-btn': 'Apuntarme á próxima cata',
     'catas-about-title': 'Unha experiencia para os sentidos',
     'catas-title': 'Catas',
     'catas-subtitle': 'Apúntate ás nosas catas comentadas',

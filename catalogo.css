@@ -36,13 +36,154 @@
   margin-bottom: 0.5rem;
 }
 
+/* --- Layout: Sidebar + Content --- */
+.catalogo-layout {
+  display: flex;
+  min-height: 60vh;
+}
+
+/* --- Sidebar (desktop) --- */
+.catalogo-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background-color: var(--charcoal, #2B2B2B);
+  border-right: 1px solid rgba(184, 150, 62, 0.15);
+  position: sticky;
+  top: 70px;
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.catalogo-nav {
+  padding: 2rem 0;
+}
+
+.catalogo-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.5rem;
+  color: var(--stone-light, #9E9889);
+  text-decoration: none;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.88rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  position: relative;
+}
+
+.catalogo-nav-link svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.catalogo-nav-link:hover {
+  color: var(--cream, #F5F0E8);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.catalogo-nav-link:hover svg {
+  opacity: 1;
+}
+
+.catalogo-nav-link.active {
+  color: var(--gold, #B8963E);
+  border-left-color: var(--gold, #B8963E);
+  background-color: rgba(184, 150, 62, 0.08);
+}
+
+.catalogo-nav-link.active svg {
+  opacity: 1;
+  color: var(--gold, #B8963E);
+}
+
+.catalogo-nav-count {
+  margin-left: auto;
+  font-size: 0.72rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--stone-light, #9E9889);
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  line-height: 1.3;
+}
+
+.catalogo-nav-link.active .catalogo-nav-count {
+  background: rgba(184, 150, 62, 0.15);
+  color: var(--gold, #B8963E);
+}
+
+.catalogo-nav-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 0.5rem 1.5rem;
+}
+
+/* --- Mobile tab bar --- */
+.catalogo-tabs {
+  display: none;
+  overflow-x: auto;
+  white-space: nowrap;
+  background-color: var(--charcoal, #2B2B2B);
+  border-bottom: 1px solid rgba(184, 150, 62, 0.15);
+  padding: 0 0.5rem;
+  position: sticky;
+  top: 62px;
+  z-index: 10;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.catalogo-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.catalogo-tab {
+  display: inline-block;
+  padding: 0.85rem 1.25rem;
+  color: var(--stone-light, #9E9889);
+  text-decoration: none;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.catalogo-tab:hover {
+  color: var(--cream, #F5F0E8);
+}
+
+.catalogo-tab.active {
+  color: var(--gold, #B8963E);
+  border-bottom-color: var(--gold, #B8963E);
+}
+
+/* --- Content area --- */
+.catalogo-content {
+  flex: 1;
+  min-width: 0;
+  padding: 3rem 0;
+  background-color: var(--cream, #F5F0E8);
+}
+
+.catalogo-content .container {
+  max-width: 960px;
+}
+
 /* --- Fichas de vino --- */
 .vino-ficha {
   padding: 3rem 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 
-.vino-ficha:last-child {
+.vino-ficha:last-of-type {
   border-bottom: none;
 }
 
@@ -107,6 +248,26 @@
 .vino-ficha-dark .vino-rosado {
   background: rgba(193, 112, 120, 0.2);
   color: #dba0a8;
+}
+
+/* --- Gama badge --- */
+.vino-gama-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-family: 'Lora', Georgia, serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  border: 1px solid var(--gold, #B8963E);
+  color: var(--gold, #B8963E);
+  border-radius: 2px;
+}
+
+.vino-gama-sentivino {
+  border-color: var(--stone, #7A7568);
+  color: var(--stone, #7A7568);
 }
 
 .vino-nombre {
@@ -181,8 +342,30 @@
   color: var(--gold, #d4a574);
 }
 
+/* --- CTA at bottom of each section --- */
+.catalogo-cta {
+  text-align: center;
+  padding: 3.5rem 2rem;
+  margin-top: 3rem;
+  background-color: var(--wine-dark, #4A0E1C);
+  border-radius: 0;
+}
+
+.catalogo-cta h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  color: var(--cream, #F5F0E8);
+  margin-bottom: 1rem;
+}
+
+.catalogo-cta p {
+  font-size: 1.05rem;
+  color: var(--cream-dark, #E8DFD0);
+  margin-bottom: 1.5rem;
+}
+
 /* --- Pedidos (sección clara) --- */
-.section-stone .contact-form .form-control {
+.catalogo-content .contact-form .form-control {
   background: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.1);
   color: var(--charcoal, #2c2420);
@@ -193,17 +376,17 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.section-stone .contact-form .form-control:focus {
+.catalogo-content .contact-form .form-control:focus {
   border-color: var(--wine, #722f37);
   box-shadow: 0 0 0 2px rgba(114, 47, 55, 0.1);
   background: #fff;
 }
 
-.section-stone .contact-form .form-control::placeholder {
+.catalogo-content .contact-form .form-control::placeholder {
   color: rgba(0, 0, 0, 0.35);
 }
 
-.section-stone .contact-form .form-label {
+.catalogo-content .contact-form .form-label {
   font-size: 0.82rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -234,10 +417,37 @@
   opacity: 0.75;
 }
 
+/* --- Loading state --- */
+#catalogo-section-content {
+  min-height: 400px;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+#catalogo-section-content.loading {
+  opacity: 0.3;
+}
+
 /* --- Responsive --- */
 @media (max-width: 991.98px) {
   .catalogo-hero-content h1 {
     font-size: 2.5rem;
+  }
+
+  .catalogo-sidebar {
+    display: none;
+  }
+
+  .catalogo-tabs {
+    display: flex;
+  }
+
+  .catalogo-layout {
+    flex-direction: column;
+  }
+
+  .catalogo-content {
+    padding: 2rem 0;
   }
 
   .vino-nombre {
@@ -265,5 +475,14 @@
 
   .vino-nombre {
     font-size: 1.5rem;
+  }
+
+  .catalogo-cta {
+    padding: 2.5rem 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .catalogo-cta h3 {
+    font-size: 1.6rem;
   }
 }

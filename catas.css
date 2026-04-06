@@ -1,0 +1,231 @@
+/* ============================================
+   CATAS — Estilos específicos
+   ============================================ */
+
+/* --- Hero --- */
+.catas-hero {
+  position: relative;
+  height: 55vh;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.catas-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1920&q=80') center/cover no-repeat;
+  transform: scale(1.05);
+  filter: brightness(0.35);
+}
+
+.catas-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 1rem;
+  color: var(--cream, #f5f0e8);
+}
+
+.catas-hero-content h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+}
+
+/* --- Sección sobre las catas --- */
+.catas-section-title {
+  font-size: 2.2rem;
+  font-weight: 300;
+}
+
+.catas-img-block {
+  overflow: hidden;
+  position: relative;
+}
+
+.catas-img-block img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.catas-img-block:hover img {
+  transform: scale(1.03);
+}
+
+/* --- Galería de catas --- */
+.catas-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 220px;
+  gap: 0.5rem;
+}
+
+.catas-gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.catas-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.catas-gallery-item:hover img {
+  transform: scale(1.08);
+  filter: brightness(0.65);
+}
+
+.catas-gallery-tall {
+  grid-row: span 2;
+}
+
+.catas-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.catas-gallery-item:hover .catas-gallery-overlay {
+  opacity: 1;
+}
+
+.catas-gallery-overlay span {
+  color: var(--cream, #f5f0e8);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+/* --- Features (qué incluye) --- */
+.catas-feature {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.catas-feature-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid var(--gold, #B8963E);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.catas-feature:hover .catas-feature-icon {
+  background-color: var(--wine, #6B1D2A);
+  border-color: var(--wine, #6B1D2A);
+}
+
+.catas-feature-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--gold, #B8963E);
+  fill: none;
+  stroke-width: 1.5;
+  transition: stroke 0.3s ease;
+}
+
+.catas-feature:hover .catas-feature-icon svg {
+  stroke: var(--cream, #f5f0e8);
+}
+
+.catas-feature h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.catas-feature p {
+  font-size: 0.95rem;
+}
+
+/* --- Form en section-wine --- */
+.section-wine .contact-form .form-control {
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+  color: var(--cream, #f5f0e8);
+}
+
+.section-wine .contact-form .form-control:focus {
+  border-color: var(--gold, #d4a574);
+}
+
+.section-wine .contact-form .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.section-wine .contact-form .form-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.section-wine .btn-wine-outline {
+  color: var(--cream, #f5f0e8);
+  border-color: var(--cream, #f5f0e8);
+}
+
+.section-wine .btn-wine-outline:hover {
+  background-color: var(--cream, #f5f0e8);
+  color: var(--wine-dark, #4A0E1C);
+}
+
+/* --- Responsive --- */
+@media (max-width: 991.98px) {
+  .catas-hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .catas-img-block img {
+    height: 350px;
+  }
+
+  .catas-section-title {
+    font-size: 1.8rem;
+  }
+
+  .catas-gallery {
+    grid-auto-rows: 180px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .catas-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 160px;
+  }
+
+  .catas-gallery-tall {
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .catas-hero {
+    height: 45vh;
+    min-height: 300px;
+  }
+
+  .catas-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .catas-img-block img {
+    height: 280px;
+  }
+}
